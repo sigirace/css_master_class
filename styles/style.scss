@@ -1,8 +1,135 @@
-@import "./reset.scss";
+@use "./reset";
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
+  background-color: #dce6d1;
+}
+
+.phone {
+  background-color: white;
+  width: 420px;
+  height: 95%;
+  border-radius: 50px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  background-color: black;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  transform: rotateX(-32deg) rotateY(-30deg) rotateZ(-20deg);
+}
+
+.header {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  .header__list {
+    gap: 10px;
+    display: flex;
+    color: white;
+    width: max-content;
+    .header__list-item {
+      padding: 10px 20px;
+      border: 1px solid rgba($color: #fff, $alpha: 0.5);
+      border-radius: 50px;
+      &.active {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 30px;
+
+  .cards__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+
+    .card__title {
+      font-size: 24px;
+      font-weight: 400;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    .card__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 30px;
+
+      span {
+        border: 1px solid black;
+        border-radius: 50px;
+        padding: 5px 10px;
+      }
+
+      &.progress {
+        display: block;
+        p {
+          font-size: 14px;
+          padding-bottom: 10px;
+          box-sizing: border-box;
+        }
+        .progress-container {
+          width: 100%;
+          height: 7px;
+          background-color: rgba($color: black, $alpha: 0.1);
+          border-radius: 10px;
+          overflow: hidden;
+          border: 1px solid rgba($color: white, $alpha: 0.5);
+          .progress-bar {
+            height: 100%;
+            background-color: white;
+            width: 70%;
+            transition: width 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+  .cards__card:first-child {
+    background-color: #292d32;
+    border: 1px solid white;
+    color: white;
+  }
+
+  .cards__card:nth-child(3) {
+    background-color: #f8fdb8;
+  }
+
+  .cards__card:nth-child(4) {
+    background-color: #b4a2f7;
+  }
+
+  .cards__card:nth-child(5) {
+    background-color: #ffd3d3;
+  }
+
+  .cards__card:nth-child(6) {
+    background-color: #d0fedc;
+  }
+
+  .cards__card:nth-child(3n) {
+    grid-column: span 2;
+    gap: 40px;
+  }
 }

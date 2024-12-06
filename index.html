@@ -7,6 +7,82 @@
     <title>CSS Layout Masterclass</title>
   </head>
   <body>
-    <div class="phone"></div>
+    <div class="phone">
+      <header class="header">
+        <ul class="header__list">
+          <li class="header__list-item active">All</li>
+          <li class="header__list-item">Advertising</li>
+          <li class="header__list-item">Dev & DevScience</li>
+          <li class="header__list-item">Goal</li>
+          <li class="header__list-item">Machine Learning</li>
+        </ul>
+      </header>
+      <div class="cards">
+        <div class="cards__card">
+          <h2 class="card__title">The Making of Mordern Art</h2>
+          <div class="card__footer progress">
+            <p class="progress-bar-text">70%</p>
+            <div class="progress-container">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <h2 class="card__title">Mobile Interfaces Advanced</h2>
+          <div class="card__footer">
+            <span class="price">Free</span>
+            <span class="length">2</span>
+          </div>
+        </div>
+        <div class="cards__card">
+          <h2 class="card__title">Graphic Design</h2>
+          <div class="card__footer">
+            <span class="price">$199/month</span>
+            <span class="length">9 month</span>
+          </div>
+        </div>
+        <div class="cards__card">
+          <h2 class="card__title">Web Design Junior</h2>
+          <div class="card__footer">
+            <span class="price">Free</span>
+            <span class="length">3</span>
+          </div>
+        </div>
+        <div class="cards__card">
+          <h2 class="card__title">Inclusive Web Design</h2>
+          <div class="card__footer">
+            <span class="price">$99/month</span>
+            <span class="length">3 month</span>
+          </div>
+        </div>
+        <div class="cards__card">
+          <h2 class="card__title">Machine Learning</h2>
+          <div class="card__footer">
+            <span class="price">$199/month</span>
+            <span class="length">12 month</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const lengthElements = document.querySelectorAll(".length");
+      lengthElements.forEach((element, index) => {
+        element.style.backgroundColor = "white";
+        if (index === 1 || index === 4) {
+          return;
+        }
+        element.textContent = element.textContent.charAt(0);
+      });
+
+      const priceElements = document.querySelectorAll(".price");
+
+      priceElements.forEach((element) => {
+        if (element.textContent.trim() === "Free") {
+          element.style.backgroundColor = "#FEDD2D";
+        } else {
+          element.style.backgroundColor = "#E9AEFC";
+        }
+      });
+    </script>
   </body>
 </html>
