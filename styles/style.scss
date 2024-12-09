@@ -1,8 +1,122 @@
-@import "./reset.scss";
+@import url("./reset.scss");
+
+$bg: #f0f0f0;
+$accent: #c7c2cc;
+$borderWidth: 2px;
+
+@keyframes slide {
+  0% {
+    transform: translateY(-1000%) rotateZ(90deg);
+  }
+  100% {
+    transform: translateY(calc(0% - 60px)) rotateZ(90deg);
+  }
+}
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  gap: $borderWidth;
+  background-color: black;
+  grid-template-rows: 10fr 10fr 45fr 35fr;
+  grid-template-columns: 0.3fr repeat(4, 1fr);
   height: 100vh;
+  div {
+    background-color: $bg;
+    overflow: hidden;
+    &:nth-child(11) {
+      grid-column: span 3;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+  .logo {
+    grid-area: span 2 / span 2;
+    font-size: 98px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    grid-column: span 3;
+    font-size: 66px;
+    text-transform: uppercase;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-btn {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    justify-content: center;
+    gap: 10px;
+    .nav-btn__name {
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .nav-btn__desc {
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+  .banner {
+    grid-row: span 2;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    span {
+      position: absolute;
+      width: max-content;
+      color: red;
+      font-size: 24px;
+      font-weight: 900;
+      animation: slide 5s linear infinite;
+    }
+  }
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    .post__title {
+      font-size: 44px;
+      font-weight: 900;
+    }
+    p {
+      font-size: 22px;
+    }
+    &.post--big {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .post__title {
+        font-size: 170px;
+      }
+    }
+  }
+  .featured {
+    background-color: $accent;
+    padding: 50px;
+    display: flex;
+    div {
+      background-color: $bg;
+      border: $borderWidth solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        text-align: center;
+        font-size: 48px;
+        font-weight: 900;
+      }
+    }
+  }
 }
