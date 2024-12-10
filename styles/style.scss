@@ -1,8 +1,62 @@
-@import "./reset.scss";
+@import url("./reset.scss");
+
+$bg: #dde1d3;
+$blue: #00a0c8;
+$red: #d03022;
+$burntRed: #573533;
 
 body {
+  background-color: black;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.poster {
+  width: 37%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  grid-template-rows: 90px 1.2fr 90px 1fr 90px 1.2fr 90px;
+  background-color: $bg;
+  padding: 20px;
+  box-sizing: border-box;
+  .top-left,
+  .top-right,
+  .top-top,
+  .center-bottom {
+    background-color: $blue;
+  }
+  .center-top,
+  .bottom-left,
+  .bottom-right,
+  .bottom-bottom {
+    background-color: $red;
+  }
+  .center-left,
+  .center-right {
+    background-color: $burntRed;
+  }
+  .top-left,
+  .top-right,
+  .bottom-left,
+  .bottom-right {
+    grid-row: span 2;
+  }
+  .center-left,
+  .center-right {
+    grid-row: span 3;
+  }
+  h1 {
+    font-size: 78px;
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 10px;
+    font-weight: 600;
+  }
 }
