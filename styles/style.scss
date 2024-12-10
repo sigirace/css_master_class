@@ -1,8 +1,59 @@
-@import "./reset.scss";
+@import url("./reset.scss");
+
+$white: #dee1d6;
+$green: #5ebc44;
 
 body {
+  background-color: black;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.poster {
+  background-color: $green;
+  width: 37%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 30fr 70fr;
+  .top {
+    display: grid;
+    padding: 25px;
+    row-gap: 25px;
+    grid-template-columns: 75fr 25fr;
+    .top__box {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 18px;
+      &:last-child {
+        color: white;
+        font-size: 22px;
+        align-self: center;
+      }
+      h1 {
+        font-size: 148px;
+      }
+    }
+  }
+  .bottom {
+    overflow: hidden;
+    .circles {
+      transform: scale(1.1);
+      background-color: black;
+      display: grid;
+      gap: 5px;
+      height: 100%;
+      grid-template: repeat(11, 1fr) / repeat(11, 1fr);
+      .circle {
+        background-color: $green;
+        border-radius: 50%;
+        &:nth-child(3n) {
+          background-color: white;
+        }
+      }
+    }
+  }
 }
